@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Engr. Melvin Arevalo</title>
+
+<style>
+
+body{
+background:#f5f0e6;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+h1{
+font-size:60px;
+margin-top:50px;
+}
+
+h2{
+font-size:35px;
+}
+
+button{
+padding:15px 30px;
+font-size:20px;
+border:none;
+background:#333;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:black;
+}
+
+img{
+width:350px;
+border-radius:20px;
+margin-top:20px;
+}
+
+.firework{
+position:absolute;
+font-size:40px;
+animation:explode 1.5s infinite;
+}
+
+@keyframes explode{
+0%{transform:scale(0);opacity:1;}
+100%{transform:scale(2);opacity:0;}
+}
+
+.confetti{
+position:absolute;
+font-size:25px;
+animation:fall 3s linear infinite;
+}
+
+@keyframes fall{
+0%{top:-50px;}
+100%{top:100vh;}
+}
+
+#celebration{
+display:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Happy Birthday</h1>
+
+<h2>Engr. Melvin Arevalo</h2>
+
+<p>Wishing you happiness, success and blessings!</p>
+
+<img src="engr.jpg">
+
+<br><br>
+
+<button onclick="startParty()">Make a Wish</button>
+
+<div id="celebration">
+
+<h1>Your wish is glowing ✨</h1>
+
+<h2>🎂 Happy Birthday! 🎂</h2>
+
+</div>
+
+<audio id="song" src="happy-birthday.mp3"></audio>
+
+<script>
+
+function startParty(){
+
+document.getElementById("celebration").style.display="block";
+
+document.getElementById("song").play();
+
+for(let i=0;i<30;i++){
+
+let firework=document.createElement("div");
+firework.className="firework";
+firework.innerHTML="🎆";
+
+firework.style.left=Math.random()*100+"%";
+firework.style.top=Math.random()*100+"%";
+
+document.body.appendChild(firework);
+
+}
+
+for(let i=0;i<50;i++){
+
+let confetti=document.createElement("div");
+confetti.className="confetti";
+
+let emojis=["🎉","🎊","✨","💖","🌸"];
+
+confetti.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+confetti.style.left=Math.random()*100+"%";
+
+document.body.appendChild(confetti);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
